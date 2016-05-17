@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <title>Multi Position Logging</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- JS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="/js/localize2.js"></script>
+    <script src="/js/geolocation.js"></script>
+    <script type="text/javascript" src="/js/geojson.js"></script>
+    <script type="text/javascript" src="/js/geojson.min.js"></script>
+
+    <!-- CSS -->
+    <link href="/css/bootswatch/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap.css.map" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- INLINE CSS -->
+    <style>
+ 
+      body {
+        padding-top: 60px;
+      }
+      .PositionRecord, .PositionEdit, .PositionDelete {
+      	cursor:pointer;
+      }
+
+     </style>
+   </head>
+  <body>
+  </div></div></div></div>
+   <div class="container">
+    <h1>WebSQL (SQLite Flavor) Geolocation Logger</h1>
+      <div id="Table" style="display:none">
+      	<table class="table table-bordered">
+      	      <thead>
+      		<tr>
+      		<th>Coordinates</th>
+      		<th>Address</th>
+                <th>Feature</th>
+                <th>Additional</th>
+                <th>Logged</th>
+                <th>Edit/Delete</th>
+      		</tr>
+      	      </thead>
+      	   <tbody></tbody>
+      	</table>
+      </div>
+      <div id="status"></div>
+     <p>
+     <button id="doOpenForm" class="btn btn-primary">Add Record</button>
+      </p>
+      <div id="editDiv" style="display:none">
+      <form class="form-horizontal">
+      <legend>Log Position</legend>
+      <fieldset>
+
+	<!-- BEGIN HTML5 GEOLOCATION SERVICE -->
+        <!-- LOADS DD ON LOAD -->
+	<body onload="getLocation()">
+
+	<!-- DUPLICATES HIDDEN FIELD IN FORM -->
+      <script>
+	function dupe(f) {
+  	if(f.pair.checked == true) {
+    	f.lat.value = f.targetlat.value;
+    	f.lng.value = f.targetlng.value;
+   	}
+       }
+      </script>
+
+ 	<!-- FORM FIELD -->
+	<p>Latitude: <input type="text" id="lat" name="lat" class="location" placeholder="Latitude"/></p>
+	<p>Longitude: <input type="text" id="lng" name="lng" class="location" placeholder="Longitude" /></p>
+        <p>Address: <input type="text" id="address" name="address" class="location" placeholder="Address" /></p>
+        <p>Feature: <input type="text" id="feature" name="feature" class="location" placeholder="Feature" /></p>
+        <p>Additional: <input type="text" id="value1" name="value1" class="location" placeholder="Additional" /></p>
+	<div class="control-group">
+	<div class="controls">
+	<input type="submit" id="doLogPositions" class="btn btn-primary" value="Log This Record"> 
+	</div></div>
+         </fieldset>
+          </form>
+           </div>
+          <div id="displayDiv" style="display:none">
+      	<h2></h2>
+      <p></p>
+      </div>
+      <p></p>
+       <button id="doJSONSubmit" class="btn-info">Popup JSON</button>
+      </p>
+       <button id="doGeoJSONSubmit" class="btn-info">Popup GeoJSON</button>
+      </p>
+       <button id="delTable" class="btn-info">Delete Table - Disabled</button>
+    </div>
+  </body>
+</html>
+<!-- EOF -->
