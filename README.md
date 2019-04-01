@@ -4,3 +4,5 @@ Uses WebSQL and some JS to log a position and some other info on your phone if y
 Chrome, Opera, Safari are only browsers that support it. 
 
 Part of a series of localdb tests.
+
+Since the Google Geolocation API deprecation on phones, this will not populate the lat/long fields anymore... 
